@@ -154,18 +154,27 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 65% 50%, rgba(200, 169, 110, 0.08) 0%, transparent 65%),
-    linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background-image: url('../assets/pexels-caique-araujo-101156227-15875672-2.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 10, 10, 0.88) 0%,
+    rgba(10, 10, 10, 0.72) 45%,
+    rgba(10, 10, 10, 0.35) 75%,
+    rgba(10, 10, 10, 0.2) 100%
+  );
 }
 
 .hero-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 80px 80px;
+  display: none;
 }
 
 .hero .container {

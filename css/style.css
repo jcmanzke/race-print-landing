@@ -255,7 +255,7 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
 .print-card-preview {
   width: 320px;
   background: var(--white);
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 1rem;
   border-radius: 2px;
   box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
   position: relative;
@@ -347,6 +347,124 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
   justify-content: center;
   border-radius: 2px;
   letter-spacing: 0.05em;
+}
+
+/* Hamburg Marathon Poster */
+.hamburg-poster {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.hamburg-header {
+  background: #0c1a5c;
+  padding: 1rem 1rem 0.75rem;
+}
+
+.hamburg-title {
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.hamburg-photo-area {
+  background: linear-gradient(
+    180deg,
+    #0e1d6e 0%,
+    #162470 15%,
+    #1c2a70 30%,
+    #243278 45%,
+    #1e2c6c 55%,
+    #162060 65%,
+    #101850 75%,
+    #0c1648 85%,
+    #0a1438 100%
+  );
+}
+
+.hamburg-stats-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 1rem 0.3rem;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.hamburg-route-svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+.hamburg-footer {
+  background: #0c1a5c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+}
+
+.hamburg-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hamburg-logo-icon {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.hamburg-logo-text {
+  font-size: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  line-height: 1.4;
+}
+
+.hamburg-logo-cursive {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.62rem;
+  display: block;
+}
+
+.hamburg-runner-info {
+  text-align: right;
+}
+
+.hamburg-runner-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.hamburg-bib-label {
+  display: inline-block;
+  background: white;
+  color: #0c1a5c;
+  font-size: 0.45rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  margin-top: 0.2rem;
 }
 
 /* ===== BANNER STRIP ===== */

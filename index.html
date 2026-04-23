@@ -100,79 +100,32 @@
   </div>
 </section>
 
-<!-- ===== PRODUCTS ===== -->
+<!-- ===== PRODUCTS / LIVE CUSTOMIZER ===== -->
 <section id="products" class="products-section">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="label">Our Prints</span>
-      <h2>Choose your style</h2>
-      <p>Four unique designs. All fully personalized to your race.</p>
+      <span class="label">Design Your Print</span>
+      <h2>Try it now</h2>
+      <p>Pick a style, enter your race details, and watch your print come to life.</p>
     </div>
-    <div class="products-grid">
 
-      <a href="products/product.html?id=marathon-classic" class="product-card fade-in">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 6 C44 6 52 14 52 26 C52 38 44 44 34 48 C28 50 24 54 24 60" stroke="#c8a96e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M32 6 C20 6 12 14 12 26 C12 34 17 40 24 44 C30 48 31 54 31 60" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="4 4"/>
-            <circle cx="32" cy="6" r="4" fill="#c8a96e"/>
-            <circle cx="28" cy="58" r="4" fill="#0a0a0a"/>
-            <circle cx="28" cy="58" r="7" fill="none" stroke="#c8a96e" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <div class="product-card-label">Classic</div>
-        <h3>Marathon Classic</h3>
-        <p class="product-card-desc">Route art with gold accents on white. Your name, bib, finish time and pace — elegantly composed.</p>
-        <span class="product-card-cta">Customize &rarr;</span>
-      </a>
+    <div class="style-tabs fade-in">
+      <button class="style-tab active" data-style="marathon-classic">Marathon Classic</button>
+      <button class="style-tab" data-style="elevation-profile">Elevation Profile</button>
+      <button class="style-tab" data-style="split-times">Split Times</button>
+      <button class="style-tab" data-style="bib-art">Finisher Bib Art</button>
+    </div>
 
-      <a href="products/product.html?id=elevation-profile" class="product-card fade-in fade-in-delay-1">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="2" fill="#0a0a0a"/>
-            <path d="M4 52 L18 28 L32 14 L46 32 L60 52" stroke="#c8a96e" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-            <path d="M4 52 L18 28 L32 14 L46 32 L60 52 L60 60 L4 60 Z" fill="rgba(200,169,110,0.15)"/>
-            <circle cx="32" cy="14" r="4" fill="#c8a96e"/>
-          </svg>
-        </div>
-        <div class="product-card-label">Trail &amp; Ultra</div>
-        <h3>Elevation Profile</h3>
-        <p class="product-card-desc">Mountain silhouette on black. Dramatic elevation chart with peak, ascent, and finish time.</p>
-        <span class="product-card-cta">Customize &rarr;</span>
-      </a>
-
-      <a href="products/product.html?id=split-times" class="product-card fade-in fade-in-delay-2">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="8" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
-            <rect x="4" y="22" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
-            <rect x="4" y="36" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
-            <rect x="4" y="50" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
-            <rect x="4" y="8" width="4" height="10" rx="1" fill="#c8a96e"/>
-            <rect x="4" y="22" width="4" height="10" rx="1" fill="#c8a96e"/>
-            <rect x="4" y="36" width="4" height="10" rx="1" fill="#c8a96e"/>
-            <rect x="4" y="50" width="4" height="10" rx="1" fill="#c8a96e"/>
-          </svg>
-        </div>
-        <div class="product-card-label">Data Art</div>
-        <h3>Split Times</h3>
-        <p class="product-card-desc">Every 5 km, celebrated. A typographic display of all your split times from start to finish.</p>
-        <span class="product-card-cta">Customize &rarr;</span>
-      </a>
-
-      <a href="products/product.html?id=bib-art" class="product-card fade-in fade-in-delay-3">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="2" fill="#111"/>
-            <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#c8a96e" text-anchor="middle">42</text>
-          </svg>
-        </div>
-        <div class="product-card-label">Statement Piece</div>
-        <h3>Finisher Bib Art</h3>
-        <p class="product-card-desc">Your number, monumental. An oversized bib display on near-black with your motto beneath.</p>
-        <span class="product-card-cta">Customize &rarr;</span>
-      </a>
-
+    <div class="customizer-layout fade-in fade-in-delay-1">
+      <div class="customizer-form-side">
+        <p id="home-customizer-tagline" class="customizer-tagline"></p>
+        <div id="home-customizer-fields"></div>
+        <a id="home-customizer-cta" href="products/product.html?id=marathon-classic" class="btn btn-primary" style="margin-top:1rem; display:inline-flex;">Order this print &rarr;</a>
+        <p class="customizer-hint">Complete your order on the next page &mdash; shipping details &amp; size selection included.</p>
+      </div>
+      <div class="customizer-preview">
+        <div id="home-preview-container"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -365,5 +318,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/customizer.js"></script>
 </body>
 </html>

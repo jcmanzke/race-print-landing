@@ -1,0 +1,182 @@
+/* ===== NAV: always visible on product pages ===== */
+nav {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 1px 0 var(--gray-200);
+}
+nav .nav-logo { color: var(--black); }
+nav .nav-links a { color: var(--gray-600); }
+
+/* ===== PREVIEW FRAME: larger on product pages ===== */
+.product-customizer .preview-frame {
+  width: 100%;
+  max-width: 480px;
+  padding: 4rem 3rem;
+}
+.product-customizer .customizer-preview {
+  align-items: start;
+}
+.product-customizer .preview-name { font-size: 2.4rem; }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  padding: 6.5rem 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+.breadcrumb a { color: var(--gray-400); transition: color var(--transition); }
+.breadcrumb a:hover { color: var(--accent); }
+
+/* ===== PRODUCT CUSTOMIZER SECTION ===== */
+.product-customizer { padding: 2rem 0 6rem; }
+
+/* Override the default customizer-layout gap for product page */
+.product-customizer .customizer-layout {
+  gap: 4rem;
+  align-items: start;
+}
+
+.customizer-form-side { }
+
+.customizer-form-side h1 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 2rem;
+}
+
+/* ===== FORM VALIDATION ===== */
+.customizer-form-group input.error,
+.customizer-form-group select.error {
+  border-color: #e05252;
+  box-shadow: 0 0 0 3px rgba(224, 82, 82, 0.15);
+}
+
+/* ===== SHIPPING FIELDSET ===== */
+.shipping-fields {
+  border: none;
+  padding: 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--gray-200);
+  padding-top: 2rem;
+}
+.shipping-fields legend {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ===== PREVIEW THEMES ===== */
+.preview-elevation {
+  background: #0a0a0a;
+  color: white;
+  border-color: #222;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.preview-elevation .preview-race-label { color: rgba(255,255,255,0.4); }
+.preview-elevation .preview-name { color: var(--white); }
+.preview-elevation .preview-stat-val { color: var(--white); }
+
+.preview-splits { background: white; }
+
+.preview-bib-art {
+  background: #111;
+  color: white;
+  border-color: #222;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.preview-bib-art .preview-name { color: var(--white); }
+
+/* ===== ELEVATION SVG PREVIEW ===== */
+.elevation-chart {
+  width: 100%;
+  height: 100px;
+  margin: 1.5rem 0;
+}
+.elevation-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.25rem;
+}
+
+/* ===== SPLITS TABLE ===== */
+.splits-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.splits-table td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+}
+.splits-table tr { border-left: 3px solid var(--accent); }
+.splits-table tr + tr { border-top: 1px solid var(--gray-200); }
+.splits-table .split-km { color: var(--gray-400); font-size: 0.65rem; letter-spacing: 0.1em; }
+.splits-table .split-time { font-weight: 700; text-align: right; }
+.splits-total { border-top: 2px solid var(--accent); }
+.splits-total td { font-weight: 800; font-size: 0.9rem; padding-top: 0.75rem; }
+
+/* ===== BIB ART PREVIEW ===== */
+.bib-number-display {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin: 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+.bib-motto {
+  font-size: 0.65rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* ===== ORDER FORM ===== */
+#order-form .btn-primary {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+  padding: 1rem;
+}
+.order-note {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* ===== PRODUCT ERROR STATE ===== */
+.product-error {
+  text-align: center;
+  padding: 6rem 2rem;
+}
+.product-error p {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .product-customizer .customizer-layout {
+    grid-template-columns: 1fr;
+  }
+  .product-customizer .customizer-preview { order: -1; }
+}
+
+@media (max-width: 768px) {
+  .breadcrumb { padding-top: 5.5rem; }
+  .bib-number-display { font-size: 3.5rem; }
+}

@@ -20,7 +20,15 @@
       <li><a href="#how-it-works">How it works</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#customize" class="nav-cta">Order Now</a></li>
+      <li class="nav-dropdown">
+        <a href="#products" class="nav-cta">Products &#9662;</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="products/product.html?id=marathon-classic">Marathon Classic</a></li>
+          <li><a href="products/product.html?id=elevation-profile">Elevation Profile</a></li>
+          <li><a href="products/product.html?id=split-times">Split Times</a></li>
+          <li><a href="products/product.html?id=bib-art">Finisher Bib Art</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
@@ -38,7 +46,7 @@
         Turn your marathon finish into a premium art print — personalized with your name, bib number, finish time and pace. A celebration made to last forever.
       </p>
       <div class="hero-actions">
-        <a href="#customize" class="btn btn-primary">Design Your Print</a>
+        <a href="#products" class="btn btn-primary">Design Your Print</a>
         <a href="#gallery" class="btn btn-outline">See Examples</a>
       </div>
       <div class="hero-stats">
@@ -107,93 +115,79 @@
   </div>
 </section>
 
-<!-- ===== CUSTOMIZER ===== -->
-<section id="customize" class="customizer-section">
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="products-section">
   <div class="container">
-    <div class="customizer-layout">
-      <div>
-        <div class="fade-in">
-          <span class="label">Live Preview</span>
-          <h2>Make it yours</h2>
-          <p style="color:var(--gray-600); margin: 1rem 0 2.5rem; line-height:1.8; font-size:0.95rem;">
-            Fill in your details below and watch your print come to life on the right. Every field is personalized — this is your race, your moment.
-          </p>
-        </div>
+    <div class="section-header fade-in">
+      <span class="label">Our Prints</span>
+      <h2>Choose your style</h2>
+      <p>Four unique designs. All fully personalized to your race.</p>
+    </div>
+    <div class="products-grid">
 
-        <div class="fade-in fade-in-delay-1">
-          <div class="customizer-form-group">
-            <label for="runner-name">Runner Name</label>
-            <input type="text" id="runner-name" placeholder="e.g. Anna Müller" maxlength="40" />
-          </div>
-          <div class="customizer-form-group">
-            <label for="race-name">Race Name</label>
-            <input type="text" id="race-name" placeholder="e.g. BERLIN MARATHON 2025" maxlength="50" />
-          </div>
-          <div class="form-row">
-            <div class="customizer-form-group">
-              <label for="bib-number">Bib / Start Number</label>
-              <input type="text" id="bib-number" placeholder="e.g. 4219" maxlength="6" />
-            </div>
-            <div class="customizer-form-group">
-              <label for="finish-time">Finish Time</label>
-              <input type="text" id="finish-time" placeholder="e.g. 3:42:18" maxlength="10" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="customizer-form-group">
-              <label for="pace">Average Pace (per km)</label>
-              <input type="text" id="pace" placeholder="e.g. 5:16" maxlength="8" />
-            </div>
-            <div class="customizer-form-group">
-              <label for="print-size">Print Size</label>
-              <select id="print-size">
-                <option value="">Select size</option>
-                <option value="a3">A3 (30×42 cm)</option>
-                <option value="a2">A2 (42×60 cm)</option>
-                <option value="50x70">50×70 cm</option>
-              </select>
-            </div>
-          </div>
-          <button id="order-btn" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:0.5rem; padding:1rem;">
-            Order This Print
-          </button>
-          <p style="font-size:0.72rem; color:var(--gray-400); text-align:center; margin-top:0.75rem;">
-            Starting at <strong>€49</strong> · Free shipping over €75 · Ships in 5 days
-          </p>
+      <a href="products/product.html?id=marathon-classic" class="product-card fade-in">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 6 C44 6 52 14 52 26 C52 38 44 44 34 48 C28 50 24 54 24 60" stroke="#c8a96e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M32 6 C20 6 12 14 12 26 C12 34 17 40 24 44 C30 48 31 54 31 60" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="4 4"/>
+            <circle cx="32" cy="6" r="4" fill="#c8a96e"/>
+            <circle cx="28" cy="58" r="4" fill="#0a0a0a"/>
+            <circle cx="28" cy="58" r="7" fill="none" stroke="#c8a96e" stroke-width="1.5"/>
+          </svg>
         </div>
-      </div>
+        <div class="product-card-label">Classic</div>
+        <h3>Marathon Classic</h3>
+        <p class="product-card-desc">Route art with gold accents on white. Your name, bib, finish time and pace — elegantly composed.</p>
+        <span class="product-card-cta">Customize &rarr;</span>
+      </a>
 
-      <div class="customizer-preview fade-in fade-in-delay-2">
-        <div class="preview-frame">
-          <div class="preview-bib" id="preview-bib">#</div>
-          <div class="preview-race-label" id="preview-race">MARATHON 2025</div>
-          <div class="preview-art">
-            <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M80 15 C108 15 128 35 128 60 C128 85 108 100 85 107 C72 111 64 120 64 133 C64 144 72 150 80 150"
-                stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path d="M80 15 C52 15 32 35 32 60 C32 78 42 92 56 100 C70 108 74 120 74 133"
-                stroke="#c8a96e" stroke-width="2" stroke-linecap="round" fill="none" stroke-dasharray="4 4"/>
-              <path d="M80 60 C88 55 95 58 98 66 C101 74 96 82 88 84 C80 86 73 81 72 73"
-                stroke="#0a0a0a" stroke-width="1.5" fill="none" opacity="0.3"/>
-              <circle cx="80" cy="15" r="5" fill="#c8a96e"/>
-              <circle cx="77" cy="141" r="5" fill="#0a0a0a"/>
-              <circle cx="77" cy="141" r="8" fill="none" stroke="#c8a96e" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="preview-name" id="preview-name">Your Name</div>
-          <div class="preview-line"></div>
-          <div class="preview-stats">
-            <div class="preview-stat">
-              <span class="preview-stat-val" id="preview-time">—</span>
-              <span class="preview-stat-lbl">Finish Time</span>
-            </div>
-            <div class="preview-stat">
-              <span class="preview-stat-val" id="preview-pace">—</span>
-              <span class="preview-stat-lbl">Avg Pace</span>
-            </div>
-          </div>
+      <a href="products/product.html?id=elevation-profile" class="product-card fade-in fade-in-delay-1">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="2" fill="#0a0a0a"/>
+            <path d="M4 52 L18 28 L32 14 L46 32 L60 52" stroke="#c8a96e" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <path d="M4 52 L18 28 L32 14 L46 32 L60 52 L60 60 L4 60 Z" fill="rgba(200,169,110,0.15)"/>
+            <circle cx="32" cy="14" r="4" fill="#c8a96e"/>
+          </svg>
         </div>
-      </div>
+        <div class="product-card-label">Trail &amp; Ultra</div>
+        <h3>Elevation Profile</h3>
+        <p class="product-card-desc">Mountain silhouette on black. Dramatic elevation chart with peak, ascent, and finish time.</p>
+        <span class="product-card-cta">Customize &rarr;</span>
+      </a>
+
+      <a href="products/product.html?id=split-times" class="product-card fade-in fade-in-delay-2">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
+            <rect x="4" y="22" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
+            <rect x="4" y="36" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
+            <rect x="4" y="50" width="56" height="10" rx="1" fill="var(--gray-100)" stroke="var(--gray-200)" stroke-width="1"/>
+            <rect x="4" y="8" width="4" height="10" rx="1" fill="#c8a96e"/>
+            <rect x="4" y="22" width="4" height="10" rx="1" fill="#c8a96e"/>
+            <rect x="4" y="36" width="4" height="10" rx="1" fill="#c8a96e"/>
+            <rect x="4" y="50" width="4" height="10" rx="1" fill="#c8a96e"/>
+          </svg>
+        </div>
+        <div class="product-card-label">Data Art</div>
+        <h3>Split Times</h3>
+        <p class="product-card-desc">Every 5 km, celebrated. A typographic display of all your split times from start to finish.</p>
+        <span class="product-card-cta">Customize &rarr;</span>
+      </a>
+
+      <a href="products/product.html?id=bib-art" class="product-card fade-in fade-in-delay-3">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="2" fill="#111"/>
+            <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#c8a96e" text-anchor="middle">42</text>
+          </svg>
+        </div>
+        <div class="product-card-label">Statement Piece</div>
+        <h3>Finisher Bib Art</h3>
+        <p class="product-card-desc">Your number, monumental. An oversized bib display on near-black with your motto beneath.</p>
+        <span class="product-card-cta">Customize &rarr;</span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -208,7 +202,7 @@
     </div>
     <div class="gallery-grid">
 
-      <div class="gallery-item fade-in">
+      <a href="products/product.html?id=marathon-classic" class="gallery-item fade-in">
         <div class="gallery-print">
           <div class="gallery-route">
             <svg viewBox="0 0 60 60" fill="none"><path d="M30 5 C42 5 50 13 50 25 C50 37 42 43 30 43 C18 43 10 37 10 25 C10 13 18 5 30 5Z" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/><circle cx="30" cy="5" r="2.5" fill="#c8a96e"/></svg>
@@ -217,9 +211,9 @@
           <div class="gallery-print-info">Berlin · 3:54:02</div>
         </div>
         <div class="gallery-overlay">View Print</div>
-      </div>
+      </a>
 
-      <div class="gallery-item fade-in fade-in-delay-1">
+      <a href="products/product.html?id=elevation-profile" class="gallery-item fade-in fade-in-delay-1">
         <div class="gallery-print">
           <div class="gallery-route">
             <svg viewBox="0 0 60 60" fill="none"><path d="M10 50 L20 10 L30 30 L40 15 L50 50" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round" fill="none"/><circle cx="10" cy="50" r="2.5" fill="#c8a96e"/><circle cx="50" cy="50" r="2.5" fill="white"/></svg>
@@ -228,9 +222,9 @@
           <div class="gallery-print-info">Hamburg · 4:11:39</div>
         </div>
         <div class="gallery-overlay">View Print</div>
-      </div>
+      </a>
 
-      <div class="gallery-item fade-in fade-in-delay-2">
+      <a href="products/product.html?id=split-times" class="gallery-item fade-in fade-in-delay-2">
         <div class="gallery-print">
           <div class="gallery-route">
             <svg viewBox="0 0 60 60" fill="none"><path d="M30 8 Q48 20 48 35 Q48 50 30 55 Q12 50 12 35 Q12 20 30 8" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/><circle cx="30" cy="8" r="2.5" fill="#c8a96e"/></svg>
@@ -239,9 +233,9 @@
           <div class="gallery-print-info">Munich · 3:28:57</div>
         </div>
         <div class="gallery-overlay">View Print</div>
-      </div>
+      </a>
 
-      <div class="gallery-item fade-in fade-in-delay-3">
+      <a href="products/product.html?id=bib-art" class="gallery-item fade-in fade-in-delay-3">
         <div class="gallery-print">
           <div class="gallery-route">
             <svg viewBox="0 0 60 60" fill="none"><path d="M15 10 C30 10 50 15 50 30 C50 45 35 55 20 50 C10 47 8 38 10 28 C12 18 15 10 15 10" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="15" cy="10" r="2.5" fill="#c8a96e"/><circle cx="18" cy="49" r="2.5" fill="white"/></svg>
@@ -250,7 +244,7 @@
           <div class="gallery-print-info">Vienna · 2:59:44</div>
         </div>
         <div class="gallery-overlay">View Print</div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -322,7 +316,7 @@
           <li>Rolled in protective tube</li>
           <li>Shipped in 5 business days</li>
         </ul>
-        <a href="#customize" class="btn btn-dark" style="width:100%; justify-content:center;">Order A3</a>
+        <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;">Order A3</a>
       </div>
       <div class="pricing-card featured fade-in fade-in-delay-1">
         <div class="pricing-badge">Most Popular</div>
@@ -336,7 +330,7 @@
           <li>Rolled in protective tube</li>
           <li>Shipped in 5 business days</li>
         </ul>
-        <a href="#customize" class="btn btn-primary" style="width:100%; justify-content:center;">Order A2</a>
+        <a href="#products" class="btn btn-primary" style="width:100%; justify-content:center;">Order A2</a>
       </div>
       <div class="pricing-card fade-in fade-in-delay-2">
         <div class="pricing-name">50 × 70 cm</div>
@@ -349,7 +343,7 @@
           <li>Rolled in protective tube</li>
           <li>Shipped in 5 business days</li>
         </ul>
-        <a href="#customize" class="btn btn-dark" style="width:100%; justify-content:center;">Order 50×70</a>
+        <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;">Order 50×70</a>
       </div>
     </div>
   </div>
@@ -362,7 +356,7 @@
     <h2>Your finish line<br>deserves a frame.</h2>
     <p>Every marathon is a story of discipline, pain, and triumph. Make sure yours lives on your wall, not just in your memory.</p>
     <div class="cta-actions">
-      <a href="#customize" class="btn btn-primary">Design Your Print</a>
+      <a href="#products" class="btn btn-primary">Design Your Print</a>
       <a href="mailto:hello@raceprint.de" class="btn btn-outline">Ask a Question</a>
     </div>
   </div>

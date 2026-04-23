@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — RacePrint</title>
+  <meta name="description" content="Customize your personalized race art print. Enter your details and see a live preview." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/product.css" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="scrolled">
+  <div class="container">
+    <a href="../index.html" class="nav-logo">RacePrint</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#how-it-works">How it works</a></li>
+      <li><a href="../index.html#gallery">Gallery</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li class="nav-dropdown">
+        <a href="../index.html#products" class="nav-cta">Products &#9662;</a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="product.html?id=marathon-classic">Marathon Classic</a></li>
+          <li><a href="product.html?id=elevation-profile">Elevation Profile</a></li>
+          <li><a href="product.html?id=split-times">Split Times</a></li>
+          <li><a href="product.html?id=bib-art">Finisher Bib Art</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> / <span id="product-breadcrumb">Product</span>
+</div>
+
+<!-- ===== PRODUCT CUSTOMIZER ===== -->
+<section class="product-customizer">
+  <div class="container">
+    <div class="customizer-layout">
+
+      <!-- LEFT: form -->
+      <div class="customizer-form-side">
+        <div class="fade-in">
+          <span class="label" id="product-label"></span>
+          <h1 id="product-title"></h1>
+        </div>
+
+        <form id="order-form" action="/api/order" method="POST" class="fade-in fade-in-delay-1">
+          <!-- Product-specific fields injected here by JS -->
+          <div id="product-form-fields"></div>
+
+          <!-- Shipping details -->
+          <fieldset class="shipping-fields">
+            <legend>Shipping Details</legend>
+            <div class="form-row">
+              <div class="customizer-form-group">
+                <label for="ship-name">Full Name</label>
+                <input type="text" id="ship-name" name="shipping_name" placeholder="e.g. Anna Müller" required />
+              </div>
+              <div class="customizer-form-group">
+                <label for="ship-email">Email Address</label>
+                <input type="email" id="ship-email" name="shipping_email" placeholder="e.g. anna@example.com" required />
+              </div>
+            </div>
+            <div class="customizer-form-group">
+              <label for="ship-address">Street Address</label>
+              <input type="text" id="ship-address" name="shipping_address" placeholder="e.g. Musterstraße 42" required />
+            </div>
+            <div class="form-row">
+              <div class="customizer-form-group">
+                <label for="ship-city">City</label>
+                <input type="text" id="ship-city" name="shipping_city" placeholder="e.g. Berlin" required />
+              </div>
+              <div class="customizer-form-group">
+                <label for="ship-postal">Postal Code</label>
+                <input type="text" id="ship-postal" name="shipping_postal" placeholder="e.g. 10115" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="customizer-form-group">
+                <label for="ship-country">Country</label>
+                <input type="text" id="ship-country" name="shipping_country" placeholder="e.g. Germany" required />
+              </div>
+              <div class="customizer-form-group">
+                <label for="print-size">Print Size</label>
+                <select id="print-size" name="print_size" required>
+                  <option value="">Select size</option>
+                  <option value="a3">A3 (30×42 cm) — €49</option>
+                  <option value="a2">A2 (42×60 cm) — €69</option>
+                  <option value="50x70">50×70 cm — €89</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Hidden fields populated by JS before submit -->
+          <input type="hidden" name="product_id" id="field-product-id" />
+          <input type="hidden" name="customization_summary" id="field-summary" />
+
+          <button type="submit" class="btn btn-primary" id="order-btn">Place Order</button>
+          <p class="order-note">Starting at <strong>€49</strong> · Free shipping over €75 · Ships in 5 days</p>
+        </form>
+      </div>
+
+      <!-- RIGHT: preview -->
+      <div class="customizer-preview fade-in fade-in-delay-2">
+        <div id="preview-container"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">RacePrint</div>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+        <li><a href="mailto:hello@raceprint.de">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2025 RacePrint. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/product.js"></script>
+</body>
+</html>

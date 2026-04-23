@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Received — RacePrint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .thank-you-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem;
+      text-align: center;
+      background: var(--white);
+    }
+    .thank-you-inner { max-width: 560px; margin: 0 auto; }
+    .thank-you-icon {
+      width: 72px; height: 72px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 2rem;
+    }
+    .thank-you-inner h1 { margin-bottom: 1rem; font-size: 2.4rem; }
+    .thank-you-inner p { color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">RacePrint</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how-it-works">How it works</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#products" class="nav-cta">Products</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="thank-you-section">
+  <div class="thank-you-inner fade-in">
+    <div class="thank-you-icon">✓</div>
+    <span class="label">Order Received</span>
+    <h1>Thank you!</h1>
+    <p>
+      We've received your order and will send a confirmation to your email shortly.
+      Your personalized print will ship within <strong>5 business days</strong>.
+    </p>
+    <a href="index.html" class="btn btn-primary">Back to Home</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">RacePrint</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#how-it-works">How it works</a></li>
+        <li><a href="mailto:hello@raceprint.de">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2025 RacePrint. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

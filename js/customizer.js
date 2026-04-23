@@ -1,56 +1,60 @@
 // ===== LANDING PAGE LIVE CUSTOMIZER =====
 
-const HOME_PRODUCTS = {
+const HOME_PRODUCT_DEFS = {
   'marathon-classic': {
-    name: 'Marathon Classic',
-    tagline: 'Route art with gold accents on white',
+    nameKey: 'product.marathon_classic.name',
+    taglineKey: 'product.marathon_classic.tagline',
     fields: [
-      { id: 'runner-name',  label: 'Runner Name',  placeholder: 'e.g. Anna Müller',          maxlength: 40 },
-      { id: 'race-name',   label: 'Race Name',    placeholder: 'e.g. BERLIN MARATHON 2025', maxlength: 50 },
-      { id: 'bib-number',  label: 'Bib Number',   placeholder: 'e.g. 4219',                 maxlength: 6  },
-      { id: 'finish-time', label: 'Finish Time',  placeholder: 'e.g. 3:42:18',             maxlength: 10 },
-      { id: 'pace',        label: 'Avg Pace /km', placeholder: 'e.g. 5:16',                maxlength: 8  },
+      { id: 'runner-name',  labelKey: 'field.runner_name',  placeholderKey: 'placeholder.runner_name',  maxlength: 40 },
+      { id: 'race-name',   labelKey: 'field.race_name',    placeholderKey: 'placeholder.race_name',    maxlength: 50 },
+      { id: 'bib-number',  labelKey: 'field.bib_number',   placeholderKey: 'placeholder.bib_number',   maxlength: 6  },
+      { id: 'finish-time', labelKey: 'field.finish_time',  placeholderKey: 'placeholder.finish_time',  maxlength: 10 },
+      { id: 'pace',        labelKey: 'field.avg_pace',     placeholderKey: 'placeholder.avg_pace',     maxlength: 8  },
     ],
     buildPreview: buildClassicPreview,
   },
   'elevation-profile': {
-    name: 'Elevation Profile',
-    tagline: 'Mountain silhouette on black',
+    nameKey: 'product.elevation_profile.name',
+    taglineKey: 'product.elevation_profile.tagline',
     fields: [
-      { id: 'race-name',       label: 'Race Name',           placeholder: 'e.g. ZUGSPITZ ULTRATRAIL', maxlength: 50 },
-      { id: 'start-elevation', label: 'Start Elevation (m)', placeholder: 'e.g. 720',                 maxlength: 6  },
-      { id: 'peak-elevation',  label: 'Peak Elevation (m)',  placeholder: 'e.g. 2962',                maxlength: 6  },
-      { id: 'total-ascent',    label: 'Total Ascent (m)',    placeholder: 'e.g. 4400',                maxlength: 6  },
-      { id: 'finish-time',     label: 'Finish Time',         placeholder: 'e.g. 7:34:22',            maxlength: 10 },
+      { id: 'race-name',       labelKey: 'field.race_name',       placeholderKey: 'placeholder.race_name_trail', maxlength: 50 },
+      { id: 'start-elevation', labelKey: 'field.start_elevation', placeholderKey: 'placeholder.start_elevation', maxlength: 6  },
+      { id: 'peak-elevation',  labelKey: 'field.peak_elevation',  placeholderKey: 'placeholder.peak_elevation',  maxlength: 6  },
+      { id: 'total-ascent',    labelKey: 'field.total_ascent',    placeholderKey: 'placeholder.total_ascent',    maxlength: 6  },
+      { id: 'finish-time',     labelKey: 'field.finish_time',     placeholderKey: 'placeholder.finish_time_trail', maxlength: 10 },
     ],
     buildPreview: buildElevationPreview,
   },
   'split-times': {
-    name: 'Split Times',
-    tagline: 'Every 5 km, celebrated',
+    nameKey: 'product.split_times.name',
+    taglineKey: 'product.split_times.tagline',
     fields: [
-      { id: 'runner-name', label: 'Runner Name',      placeholder: 'e.g. Anna Müller',          maxlength: 40 },
-      { id: 'race-name',   label: 'Race Name',        placeholder: 'e.g. BERLIN MARATHON 2025', maxlength: 50 },
+      { id: 'runner-name', labelKey: 'field.runner_name',      placeholderKey: 'placeholder.runner_name', maxlength: 40 },
+      { id: 'race-name',   labelKey: 'field.race_name',        placeholderKey: 'placeholder.race_name',   maxlength: 50 },
       { id: 'splits',      type: 'splits-group' },
-      { id: 'finish-time', label: 'Total Finish Time', placeholder: 'e.g. 3:42:18',             maxlength: 10 },
+      { id: 'finish-time', labelKey: 'field.total_finish_time', placeholderKey: 'placeholder.finish_time', maxlength: 10 },
     ],
     buildPreview: buildSplitPreview,
   },
   'bib-art': {
-    name: 'Finisher Bib Art',
-    tagline: 'Your number, monumental',
+    nameKey: 'product.bib_art.name',
+    taglineKey: 'product.bib_art.tagline',
     fields: [
-      { id: 'runner-name', label: 'Runner Name',    placeholder: 'e.g. Anna Müller',          maxlength: 40 },
-      { id: 'race-name',   label: 'Race Name',      placeholder: 'e.g. BERLIN MARATHON 2025', maxlength: 50 },
-      { id: 'bib-number',  label: 'Bib Number',     placeholder: 'e.g. 4219',                 maxlength: 6  },
-      { id: 'finish-time', label: 'Finish Time',    placeholder: 'e.g. 3:42:18',             maxlength: 10 },
-      { id: 'motto',       label: 'Personal Motto', placeholder: 'e.g. Pain is temporary',    maxlength: 60 },
+      { id: 'runner-name', labelKey: 'field.runner_name',    placeholderKey: 'placeholder.runner_name',    maxlength: 40 },
+      { id: 'race-name',   labelKey: 'field.race_name',      placeholderKey: 'placeholder.race_name',      maxlength: 50 },
+      { id: 'bib-number',  labelKey: 'field.bib_number',     placeholderKey: 'placeholder.bib_number',     maxlength: 6  },
+      { id: 'finish-time', labelKey: 'field.finish_time',    placeholderKey: 'placeholder.finish_time',    maxlength: 10 },
+      { id: 'motto',       labelKey: 'field.personal_motto', placeholderKey: 'placeholder.personal_motto', maxlength: 60 },
     ],
     buildPreview: buildBibPreview,
   },
 };
 
 let currentStyleId = 'marathon-classic';
+
+function t(key) {
+  return window.i18n ? window.i18n.t(key) : key;
+}
 
 function initCustomizer() {
   document.querySelectorAll('.style-tab').forEach(btn => {
@@ -61,20 +65,23 @@ function initCustomizer() {
 
 function switchStyle(styleId) {
   currentStyleId = styleId;
-  const product = HOME_PRODUCTS[styleId];
-  if (!product) return;
+  const def = HOME_PRODUCT_DEFS[styleId];
+  if (!def) return;
 
   document.querySelectorAll('.style-tab').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.style === styleId);
   });
 
   const taglineEl = document.getElementById('home-customizer-tagline');
-  if (taglineEl) taglineEl.textContent = product.tagline;
+  if (taglineEl) taglineEl.textContent = t(def.taglineKey);
 
   const ctaEl = document.getElementById('home-customizer-cta');
-  if (ctaEl) ctaEl.href = 'products/product.html?id=' + styleId;
+  if (ctaEl) {
+    ctaEl.href = 'products/product.html?id=' + styleId;
+    ctaEl.textContent = t('products.order_cta');
+  }
 
-  buildHomeFields(product.fields);
+  buildHomeFields(def.fields);
 
   document.querySelectorAll('#home-customizer-fields input').forEach(el => {
     el.addEventListener('input', updateHomePreview);
@@ -94,7 +101,7 @@ function buildHomeFields(fields) {
 
       const legend = document.createElement('div');
       legend.className = 'customizer-form-group';
-      legend.innerHTML = '<label>Split Times (every 5 km)</label>';
+      legend.innerHTML = `<label>${t('field.split_times')}</label>`;
       wrapper.appendChild(legend);
 
       const grid = document.createElement('div');
@@ -104,7 +111,7 @@ function buildHomeFields(fields) {
         group.className = 'customizer-form-group';
         group.innerHTML = `
           <label for="home-split-${i}">${i * 5} km</label>
-          <input type="text" id="home-split-${i}" placeholder="e.g. 0:23:14" maxlength="10" />
+          <input type="text" id="home-split-${i}" placeholder="${t('placeholder.split_input')}" maxlength="10" />
         `;
         grid.appendChild(group);
       }
@@ -116,8 +123,8 @@ function buildHomeFields(fields) {
     const group = document.createElement('div');
     group.className = 'customizer-form-group';
     group.innerHTML = `
-      <label for="home-${field.id}">${field.label}</label>
-      <input type="text" id="home-${field.id}" placeholder="${field.placeholder}" maxlength="${field.maxlength}" />
+      <label for="home-${field.id}">${t(field.labelKey)}</label>
+      <input type="text" id="home-${field.id}" placeholder="${t(field.placeholderKey)}" maxlength="${field.maxlength}" />
     `;
     container.appendChild(group);
   });
@@ -126,18 +133,17 @@ function buildHomeFields(fields) {
 function getHomeValues() {
   const vals = {};
   document.querySelectorAll('#home-customizer-fields input').forEach(el => {
-    // Strip the "home-" prefix to match keys expected by preview builders
     vals[el.id.replace(/^home-/, '')] = el.value;
   });
   return vals;
 }
 
 function updateHomePreview() {
-  const product = HOME_PRODUCTS[currentStyleId];
-  if (!product) return;
+  const def = HOME_PRODUCT_DEFS[currentStyleId];
+  if (!def) return;
   const container = document.getElementById('home-preview-container');
   if (!container) return;
-  product.buildPreview(container, getHomeValues());
+  def.buildPreview(container, getHomeValues());
 }
 
 // ===== PREVIEW BUILDERS =====
@@ -151,9 +157,9 @@ function escHtml(s) {
 }
 
 function buildClassicPreview(container, values) {
-  const name = values['runner-name'] || 'Your Name';
-  const race = values['race-name'] || 'MARATHON 2025';
-  const bib  = values['bib-number'] || '#';
+  const name = values['runner-name'] || t('preview.default_name');
+  const race = values['race-name'] || t('preview.default_race');
+  const bib  = values['bib-number'] || t('preview.default_bib');
   const time = values['finish-time'] || '—';
   const pace = values['pace'] ? values['pace'] + ' /km' : '—';
 
@@ -179,11 +185,11 @@ function buildClassicPreview(container, values) {
       <div class="preview-stats">
         <div class="preview-stat">
           <span class="preview-stat-val">${escHtml(time)}</span>
-          <span class="preview-stat-lbl">Finish Time</span>
+          <span class="preview-stat-lbl">${t('preview.finish_time')}</span>
         </div>
         <div class="preview-stat">
           <span class="preview-stat-val">${escHtml(pace)}</span>
-          <span class="preview-stat-lbl">Avg Pace</span>
+          <span class="preview-stat-lbl">${t('preview.avg_pace')}</span>
         </div>
       </div>
     </div>
@@ -223,19 +229,19 @@ function buildElevationPreview(container, values) {
         <circle cx="${pts[4][0]}" cy="${pts[4][1]}" r="3" fill="rgba(255,255,255,0.4)"/>
       </svg>
       <div class="elevation-label">
-        <span>${startElev}m start</span>
-        <span>${peakElev}m peak</span>
-        <span>${startElev}m finish</span>
+        <span>${startElev}m ${t('preview.start')}</span>
+        <span>${peakElev}m ${t('preview.peak')}</span>
+        <span>${startElev}m ${t('preview.finish')}</span>
       </div>
       <div class="preview-line"></div>
       <div class="preview-stats">
         <div class="preview-stat">
           <span class="preview-stat-val">${escHtml(time)}</span>
-          <span class="preview-stat-lbl">Finish Time</span>
+          <span class="preview-stat-lbl">${t('preview.finish_time')}</span>
         </div>
         <div class="preview-stat">
           <span class="preview-stat-val">${peakElev - startElev}m</span>
-          <span class="preview-stat-lbl">Net Gain</span>
+          <span class="preview-stat-lbl">${t('preview.net_gain')}</span>
         </div>
       </div>
     </div>
@@ -243,8 +249,8 @@ function buildElevationPreview(container, values) {
 }
 
 function buildSplitPreview(container, values) {
-  const name  = values['runner-name'] || 'Your Name';
-  const race  = values['race-name']   || 'MARATHON 2025';
+  const name  = values['runner-name'] || t('preview.default_name');
+  const race  = values['race-name']   || t('preview.default_race');
   const total = values['finish-time'] || '—';
 
   let rows = '';
@@ -266,7 +272,7 @@ function buildSplitPreview(container, values) {
         <tbody>${rows}</tbody>
         <tfoot>
           <tr class="splits-total">
-            <td><strong>Total</strong></td>
+            <td><strong>${t('preview.total')}</strong></td>
             <td class="split-time"><strong>${escHtml(total)}</strong></td>
           </tr>
         </tfoot>
@@ -276,8 +282,8 @@ function buildSplitPreview(container, values) {
 }
 
 function buildBibPreview(container, values) {
-  const name  = values['runner-name'] || 'Your Name';
-  const race  = values['race-name']   || 'MARATHON 2025';
+  const name  = values['runner-name'] || t('preview.default_name');
+  const race  = values['race-name']   || t('preview.default_race');
   const bib   = values['bib-number']  || '0000';
   const time  = values['finish-time'] || '—';
   const motto = values['motto']       || '';
@@ -291,7 +297,7 @@ function buildBibPreview(container, values) {
       <div class="preview-stats">
         <div class="preview-stat">
           <span class="preview-stat-val">${escHtml(time)}</span>
-          <span class="preview-stat-lbl">Finish Time</span>
+          <span class="preview-stat-lbl">${t('preview.finish_time')}</span>
         </div>
       </div>
       ${motto ? `<div class="bib-motto">"${escHtml(motto)}"</div>` : ''}
@@ -300,3 +306,7 @@ function buildBibPreview(container, values) {
 }
 
 document.addEventListener('DOMContentLoaded', initCustomizer);
+
+document.addEventListener('langchange', () => {
+  switchStyle(currentStyleId);
+});

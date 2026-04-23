@@ -1,323 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Finishline Studio — Personalized Marathon Art Prints</title>
-  <meta name="description" content="Turn your marathon finish into wall art. Personalized prints with your name, bib number, finish time and pace. A celebration made to last forever." />
+  <title>Finishline Studio — Personalisierte Marathon-Kunstdrucke</title>
+  <meta name="description"
+    content="Verwandle deinen Marathonzieleinlauf in Wandkunst. Personalisierte Drucke mit deinem Namen, deiner Startnummer, Zielzeit und Tempo. Eine Erinnerung für die Ewigkeit." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-<!-- ===== NAV ===== -->
-<nav>
-  <div class="container">
-    <a href="#" class="nav-logo">
-      <img src="assets/Finishline Studio logo.png" alt="Finishline Studio" class="nav-logo-img" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li class="nav-dropdown">
-        <a href="#products" class="nav-cta">Products &#9662;</a>
-        <ul class="nav-dropdown-menu">
-          <li><a href="products/product.html?id=marathon-classic">Marathon Classic</a></li>
-          <li><a href="products/product.html?id=elevation-profile">Elevation Profile</a></li>
-          <li><a href="products/product.html?id=split-times">Split Times</a></li>
-          <li><a href="products/product.html?id=bib-art">Finisher Bib Art</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="label">Personalized Race Art</span>
-      </div>
-      <h1>Your race.<br><em>Your story.</em><br>On your wall.</h1>
-    </div>
-    <div class="hero-actions">
-      <a href="#products" class="btn btn-primary">Design Your Print</a>
-      <a href="#gallery" class="btn btn-outline">See Examples</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== BANNER ===== -->
-<div class="banner-strip">
-  <div class="banner-track">
-    <span class="banner-item">Free shipping on orders over €75</span>
-    <span class="banner-item">Premium museum-quality paper</span>
-    <span class="banner-item">100% personalized to your race</span>
-    <span class="banner-item">Shipped within 5 business days</span>
-    <span class="banner-item">Perfect gift for runners</span>
-    <span class="banner-item">Free shipping on orders over €75</span>
-    <span class="banner-item">Premium museum-quality paper</span>
-    <span class="banner-item">100% personalized to your race</span>
-    <span class="banner-item">Shipped within 5 business days</span>
-    <span class="banner-item">Perfect gift for runners</span>
-  </div>
-</div>
-
-<!-- ===== HOW IT WORKS ===== -->
-<section id="how-it-works" class="how-it-works">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="label">Simple Process</span>
-      <h2>From finish line<br>to your wall</h2>
-      <p>Three easy steps to create a print that celebrates your personal achievement.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step-card fade-in fade-in-delay-1">
-        <div class="step-number">1</div>
-        <div class="step-icon">📝</div>
-        <h3>Enter Your Details</h3>
-        <p>Tell us your name, bib number, finish time and average pace. We also need the race name and year.</p>
-      </div>
-      <div class="step-card fade-in fade-in-delay-2">
-        <div class="step-number">2</div>
-        <div class="step-icon">🎨</div>
-        <h3>We Design Your Print</h3>
-        <p>Our designers create your personalized race art print with the course route and all your details elegantly composed.</p>
-      </div>
-      <div class="step-card fade-in fade-in-delay-3">
-        <div class="step-number">3</div>
-        <div class="step-icon">📦</div>
-        <h3>Delivered to Your Door</h3>
-        <p>Your print arrives rolled in a sturdy tube within 5 business days, ready to frame and hang with pride.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCTS / LIVE CUSTOMIZER ===== -->
-<section id="products" class="products-section">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="label">Design Your Print</span>
-      <h2>Try it now</h2>
-      <p>Pick a style, enter your race details, and watch your print come to life.</p>
-    </div>
-
-    <div class="style-tabs fade-in">
-      <button class="style-tab active" data-style="marathon-classic">Marathon Classic</button>
-      <button class="style-tab" data-style="elevation-profile">Elevation Profile</button>
-      <button class="style-tab" data-style="split-times">Split Times</button>
-      <button class="style-tab" data-style="bib-art">Finisher Bib Art</button>
-    </div>
-
-    <div class="customizer-layout fade-in fade-in-delay-1">
-      <div class="customizer-form-side">
-        <p id="home-customizer-tagline" class="customizer-tagline"></p>
-        <div id="home-customizer-fields"></div>
-        <a id="home-customizer-cta" href="products/product.html?id=marathon-classic" class="btn btn-primary" style="margin-top:1rem; display:inline-flex;">Order this print &rarr;</a>
-        <p class="customizer-hint">Complete your order on the next page &mdash; shipping details &amp; size selection included.</p>
-      </div>
-      <div class="customizer-preview">
-        <div id="home-preview-container"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== GALLERY ===== -->
-<section id="gallery" class="gallery-section">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="label">Showcase</span>
-      <h2>Wall-worthy finishes</h2>
-      <p>A selection of prints we've made for runners around the world.</p>
-    </div>
-    <div class="gallery-grid">
-
-      <a href="products/product.html?id=marathon-classic" class="gallery-item fade-in">
-        <div class="gallery-print">
-          <div class="gallery-route">
-            <svg viewBox="0 0 60 60" fill="none"><path d="M30 5 C42 5 50 13 50 25 C50 37 42 43 30 43 C18 43 10 37 10 25 C10 13 18 5 30 5Z" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/><circle cx="30" cy="5" r="2.5" fill="#c8a96e"/></svg>
-          </div>
-          <div class="gallery-print-name">Maria S.</div>
-          <div class="gallery-print-info">Berlin · 3:54:02</div>
-        </div>
-        <div class="gallery-overlay">View Print</div>
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <img src="assets/Finishline Studio logo.png" alt="Finishline Studio" class="nav-logo-img" />
       </a>
-
-      <a href="products/product.html?id=elevation-profile" class="gallery-item fade-in fade-in-delay-1">
-        <div class="gallery-print">
-          <div class="gallery-route">
-            <svg viewBox="0 0 60 60" fill="none"><path d="M10 50 L20 10 L30 30 L40 15 L50 50" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round" fill="none"/><circle cx="10" cy="50" r="2.5" fill="#c8a96e"/><circle cx="50" cy="50" r="2.5" fill="white"/></svg>
-          </div>
-          <div class="gallery-print-name">Thomas H.</div>
-          <div class="gallery-print-info">Hamburg · 4:11:39</div>
-        </div>
-        <div class="gallery-overlay">View Print</div>
-      </a>
-
-      <a href="products/product.html?id=split-times" class="gallery-item fade-in fade-in-delay-2">
-        <div class="gallery-print">
-          <div class="gallery-route">
-            <svg viewBox="0 0 60 60" fill="none"><path d="M30 8 Q48 20 48 35 Q48 50 30 55 Q12 50 12 35 Q12 20 30 8" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/><circle cx="30" cy="8" r="2.5" fill="#c8a96e"/></svg>
-          </div>
-          <div class="gallery-print-name">Lena K.</div>
-          <div class="gallery-print-info">Munich · 3:28:57</div>
-        </div>
-        <div class="gallery-overlay">View Print</div>
-      </a>
-
-      <a href="products/product.html?id=bib-art" class="gallery-item fade-in fade-in-delay-3">
-        <div class="gallery-print">
-          <div class="gallery-route">
-            <svg viewBox="0 0 60 60" fill="none"><path d="M15 10 C30 10 50 15 50 30 C50 45 35 55 20 50 C10 47 8 38 10 28 C12 18 15 10 15 10" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="15" cy="10" r="2.5" fill="#c8a96e"/><circle cx="18" cy="49" r="2.5" fill="white"/></svg>
-          </div>
-          <div class="gallery-print-name">Jonas W.</div>
-          <div class="gallery-print-info">Vienna · 2:59:44</div>
-        </div>
-        <div class="gallery-overlay">View Print</div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="label">Reviews</span>
-      <h2>Runners love their prints</h2>
-      <p>Over 2,400 runners have turned their finish into art. Here's what they say.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-in">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I cried when I opened the package. Seeing my name, my time, my number — all on this beautiful print — brought back every mile. It's hanging above my desk now."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SK</div>
-          <div>
-            <div class="testimonial-name">Sarah K.</div>
-            <div class="testimonial-race">Berlin Marathon 2024 · 4:02:11</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-in fade-in-delay-1">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Bought one for my partner as a surprise after his first marathon. He's obsessed with it. The quality is incredible — it looks like proper gallery art, not a poster."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MF</div>
-          <div>
-            <div class="testimonial-name">Michaela F.</div>
-            <div class="testimonial-race">Gift for Hamburg Marathon 2024</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-in fade-in-delay-2">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Sub-3 was my goal for 5 years. When I finally did it, I knew I had to commemorate it. This print nails every detail. A treasure I'll keep forever."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">RP</div>
-          <div>
-            <div class="testimonial-name">Robert P.</div>
-            <div class="testimonial-race">Munich Marathon 2024 · 2:58:37</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRICING ===== -->
-<section id="pricing" class="pricing">
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="label">Pricing</span>
-      <h2>Simple, transparent pricing</h2>
-      <p>Choose the size that fits your wall. Every print includes full personalization.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in">
-        <div class="pricing-name">A3 Print</div>
-        <div class="pricing-price"><span>€</span>49</div>
-        <div class="pricing-desc">30 × 42 cm — perfect for a desk or small wall</div>
-        <ul class="pricing-features">
-          <li>Personalized with name, bib & time</li>
-          <li>Museum-quality 200g/m² paper</li>
-          <li>Digital proof before print</li>
-          <li>Rolled in protective tube</li>
-          <li>Shipped in 5 business days</li>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#how-it-works" data-i18n="nav.how_it_works">So geht's</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Galerie</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Preise</a></li>
+          <li class="nav-dropdown">
+            <a href="#products" class="nav-cta"><span data-i18n="nav.products">Produkte</span> &#9662;</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="products/product.html?id=marathon-classic" data-i18n="product.marathon_classic.name">Marathon
+                  Classic</a></li>
+              <li><a href="products/product.html?id=elevation-profile"
+                  data-i18n="product.elevation_profile.name">Höhenprofil</a></li>
+              <li><a href="products/product.html?id=split-times" data-i18n="product.split_times.name">Split-Zeiten</a>
+              </li>
+              <li><a href="products/product.html?id=bib-art" data-i18n="product.bib_art.name">Startnummer Art</a></li>
+            </ul>
+          </li>
         </ul>
-        <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;">Order A3</a>
+        <div class="nav-lang">
+          <button class="lang-btn active" data-lang="de">DE</button>
+          <span class="lang-sep">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
       </div>
-      <div class="pricing-card featured fade-in fade-in-delay-1">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-name">A2 Print</div>
-        <div class="pricing-price"><span>€</span>69</div>
-        <div class="pricing-desc">42 × 60 cm — the classic statement piece</div>
-        <ul class="pricing-features">
-          <li>Personalized with name, bib & time</li>
-          <li>Museum-quality 200g/m² paper</li>
-          <li>Digital proof before print</li>
-          <li>Rolled in protective tube</li>
-          <li>Shipped in 5 business days</li>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="label" data-i18n="hero.eyebrow">Personalisierte Poster</span>
+        </div>
+        <h1 data-i18n-html="hero.h1">Dein Rennen.<br><em>Deine Geschichte.</em></h1>
+      </div>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary" data-i18n="hero.cta_primary">Druck gestalten</a>
+        <a href="#gallery" class="btn btn-outline" data-i18n="hero.cta_secondary">Beispiele ansehen</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== BANNER ===== -->
+  <div class="banner-strip">
+    <div class="banner-track">
+      <span class="banner-item" data-i18n="banner.shipping">Kostenloser Versand ab €75</span>
+      <span class="banner-item" data-i18n="banner.paper">Premium-Museumspapier</span>
+      <span class="banner-item" data-i18n="banner.personalized">100% personalisiert für dein Rennen</span>
+      <span class="banner-item" data-i18n="banner.shipped">Versand in 5 Werktagen</span>
+      <span class="banner-item" data-i18n="banner.gift">Perfektes Geschenk für Läufer</span>
+      <span class="banner-item" data-i18n="banner.shipping">Kostenloser Versand ab €75</span>
+      <span class="banner-item" data-i18n="banner.paper">Premium-Museumspapier</span>
+      <span class="banner-item" data-i18n="banner.personalized">100% personalisiert für dein Rennen</span>
+      <span class="banner-item" data-i18n="banner.shipped">Versand in 5 Werktagen</span>
+      <span class="banner-item" data-i18n="banner.gift">Perfektes Geschenk für Läufer</span>
+    </div>
+  </div>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label" data-i18n="how_it_works.label">Einfacher Ablauf</span>
+        <h2 data-i18n-html="how_it_works.title">Von der Ziellinie<br>an deine Wand</h2>
+        <p data-i18n="how_it_works.desc">Drei einfache Schritte für einen Druck, der dein persönliches Erlebnis feiert.
+        </p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card fade-in fade-in-delay-1">
+          <div class="step-number">1</div>
+          <div class="step-icon">📝</div>
+          <h3 data-i18n="step1.title">Deine Daten eingeben</h3>
+          <p data-i18n="step1.desc">Gib uns deinen Namen, deine Startnummer, Zielzeit und dein durchschnittliches Tempo.
+            Außerdem den Namen des Rennens und das Jahr.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-2">
+          <div class="step-number">2</div>
+          <div class="step-icon">🎨</div>
+          <h3 data-i18n="step2.title">Wir gestalten deinen Druck</h3>
+          <p data-i18n="step2.desc">Unsere Designer erstellen deinen personalisierten Kunstdruck mit der Streckenführung
+            und all deinen Details, elegant komponiert.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3">
+          <div class="step-number">3</div>
+          <div class="step-icon">📦</div>
+          <h3 data-i18n="step3.title">Lieferung zu dir nach Hause</h3>
+          <p data-i18n="step3.desc">Dein Druck kommt innerhalb von 5 Werktagen gerollt in einer robusten Röhre an –
+            bereit zum Einrahmen und Aufhängen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS / LIVE CUSTOMIZER ===== -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label" data-i18n="products.label">Druck gestalten</span>
+        <h2 data-i18n="products.title">Jetzt ausprobieren</h2>
+        <p data-i18n="products.desc">Wähle einen Stil, gib deine Renndaten ein und sieh deinen Druck entstehen.</p>
+      </div>
+
+      <div class="style-tabs fade-in">
+        <button class="style-tab active" data-style="marathon-classic"
+          data-i18n="product.marathon_classic.name">Marathon Classic</button>
+        <button class="style-tab" data-style="elevation-profile"
+          data-i18n="product.elevation_profile.name">Höhenprofil</button>
+        <button class="style-tab" data-style="split-times" data-i18n="product.split_times.name">Split-Zeiten</button>
+        <button class="style-tab" data-style="bib-art" data-i18n="product.bib_art.name">Startnummer Art</button>
+      </div>
+
+      <div class="customizer-layout fade-in fade-in-delay-1">
+        <div class="customizer-form-side">
+          <p id="home-customizer-tagline" class="customizer-tagline"></p>
+          <div id="home-customizer-fields"></div>
+          <a id="home-customizer-cta" href="products/product.html?id=marathon-classic" class="btn btn-primary"
+            style="margin-top:1rem; display:inline-flex;" data-i18n="products.order_cta">Druck bestellen →</a>
+          <p class="customizer-hint" data-i18n="products.hint">Bestellung auf der nächsten Seite abschließen – inkl.
+            Versanddaten und Größenwahl.</p>
+        </div>
+        <div class="customizer-preview">
+          <div id="home-preview-container"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label" data-i18n="gallery.label">Galerie</span>
+        <h2 data-i18n="gallery.title">Drucke für deine Wand</h2>
+        <p data-i18n="gallery.desc">Eine Auswahl an Drucken, die wir für Läufer aus aller Welt erstellt haben.</p>
+      </div>
+      <div class="gallery-grid">
+
+        <a href="products/product.html?id=marathon-classic" class="gallery-item fade-in">
+          <div class="gallery-print">
+            <div class="gallery-route">
+              <svg viewBox="0 0 60 60" fill="none">
+                <path d="M30 5 C42 5 50 13 50 25 C50 37 42 43 30 43 C18 43 10 37 10 25 C10 13 18 5 30 5Z"
+                  stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none" />
+                <circle cx="30" cy="5" r="2.5" fill="#c8a96e" />
+              </svg>
+            </div>
+            <div class="gallery-print-name">Maria S.</div>
+            <div class="gallery-print-info">Berlin · 3:54:02</div>
+          </div>
+          <div class="gallery-overlay" data-i18n="gallery.view_print">Druck ansehen</div>
+        </a>
+
+        <a href="products/product.html?id=elevation-profile" class="gallery-item fade-in fade-in-delay-1">
+          <div class="gallery-print">
+            <div class="gallery-route">
+              <svg viewBox="0 0 60 60" fill="none">
+                <path d="M10 50 L20 10 L30 30 L40 15 L50 50" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"
+                  stroke-linecap="round" fill="none" />
+                <circle cx="10" cy="50" r="2.5" fill="#c8a96e" />
+                <circle cx="50" cy="50" r="2.5" fill="white" />
+              </svg>
+            </div>
+            <div class="gallery-print-name">Thomas H.</div>
+            <div class="gallery-print-info">Hamburg · 4:11:39</div>
+          </div>
+          <div class="gallery-overlay" data-i18n="gallery.view_print">Druck ansehen</div>
+        </a>
+
+        <a href="products/product.html?id=split-times" class="gallery-item fade-in fade-in-delay-2">
+          <div class="gallery-print">
+            <div class="gallery-route">
+              <svg viewBox="0 0 60 60" fill="none">
+                <path d="M30 8 Q48 20 48 35 Q48 50 30 55 Q12 50 12 35 Q12 20 30 8" stroke="rgba(255,255,255,0.5)"
+                  stroke-width="1.2" fill="none" />
+                <circle cx="30" cy="8" r="2.5" fill="#c8a96e" />
+              </svg>
+            </div>
+            <div class="gallery-print-name">Lena K.</div>
+            <div class="gallery-print-info">Munich · 3:28:57</div>
+          </div>
+          <div class="gallery-overlay" data-i18n="gallery.view_print">Druck ansehen</div>
+        </a>
+
+        <a href="products/product.html?id=bib-art" class="gallery-item fade-in fade-in-delay-3">
+          <div class="gallery-print">
+            <div class="gallery-route">
+              <svg viewBox="0 0 60 60" fill="none">
+                <path d="M15 10 C30 10 50 15 50 30 C50 45 35 55 20 50 C10 47 8 38 10 28 C12 18 15 10 15 10"
+                  stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round" />
+                <circle cx="15" cy="10" r="2.5" fill="#c8a96e" />
+                <circle cx="18" cy="49" r="2.5" fill="white" />
+              </svg>
+            </div>
+            <div class="gallery-print-name">Jonas W.</div>
+            <div class="gallery-print-info">Vienna · 2:59:44</div>
+          </div>
+          <div class="gallery-overlay" data-i18n="gallery.view_print">Druck ansehen</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label" data-i18n="testimonials.label">Bewertungen</span>
+        <h2 data-i18n="testimonials.title">Läufer lieben ihre Drucke</h2>
+        <p data-i18n="testimonials.desc">Über 2.400 Läufer haben ihren Zieleinlauf in Kunst verwandelt. Das sagen sie.
+        </p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testimonial1.text">„Ich habe geweint, als ich das Paket geöffnet habe.
+            Meinen Namen, meine Zeit, meine Nummer – alles auf diesem wunderschönen Druck zu sehen, hat jede Meile
+            wieder lebendig werden lassen. Er hängt jetzt über meinem Schreibtisch."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SK</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-race" data-i18n="testimonial1.race">Berlin Marathon 2024 · 4:02:11</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-1">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testimonial2.text">„Als Überraschung für meinen Partner nach seinem
+            ersten Marathon bestellt. Er ist begeistert. Die Qualität ist unglaublich – es sieht aus wie echte
+            Galeriekunst, kein Poster."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MF</div>
+            <div>
+              <div class="testimonial-name">Michaela F.</div>
+              <div class="testimonial-race" data-i18n="testimonial2.race">Geschenk zum Hamburg Marathon 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-2">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="testimonial3.text">„Sub-3 war mein Ziel für 5 Jahre. Als ich es endlich
+            geschafft hatte, wusste ich, dass ich es festhalten muss. Dieser Druck trifft jedes Detail. Ein Schatz, den
+            ich für immer behalten werde."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RP</div>
+            <div>
+              <div class="testimonial-name">Robert P.</div>
+              <div class="testimonial-race" data-i18n="testimonial3.race">München Marathon 2024 · 2:58:37</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label" data-i18n="pricing.label">Preise</span>
+        <h2 data-i18n="pricing.title">Einfache, transparente Preise</h2>
+        <p data-i18n="pricing.desc">Wähle die Größe, die zu deiner Wand passt. Jeder Druck ist vollständig
+          personalisiert.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-in">
+          <div class="pricing-name">A3 Print</div>
+          <div class="pricing-price"><span>€</span>49</div>
+          <div class="pricing-desc" data-i18n="pricing.a3.desc">30 × 42 cm – perfekt für Schreibtisch oder kleine Wand
+          </div>
+          <ul class="pricing-features">
+            <li data-i18n="pricing.feature1">Personalisiert mit Name, Startnr. &amp; Zeit</li>
+            <li data-i18n="pricing.feature2">Museumspapier 200g/m²</li>
+            <li data-i18n="pricing.feature3">Digitale Voransicht vor dem Druck</li>
+            <li data-i18n="pricing.feature4">Gerollt in Schutzröhre</li>
+            <li data-i18n="pricing.feature5">Versand in 5 Werktagen</li>
+          </ul>
+          <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;"
+            data-i18n="pricing.a3.cta">A3 bestellen</a>
+        </div>
+        <div class="pricing-card featured fade-in fade-in-delay-1">
+          <div class="pricing-badge" data-i18n="pricing.badge">Beliebteste Wahl</div>
+          <div class="pricing-name">A2 Print</div>
+          <div class="pricing-price"><span>€</span>69</div>
+          <div class="pricing-desc" data-i18n="pricing.a2.desc">42 × 60 cm – das klassische Statement-Stück</div>
+          <ul class="pricing-features">
+            <li data-i18n="pricing.feature1">Personalisiert mit Name, Startnr. &amp; Zeit</li>
+            <li data-i18n="pricing.feature2">Museumspapier 200g/m²</li>
+            <li data-i18n="pricing.feature3">Digitale Voransicht vor dem Druck</li>
+            <li data-i18n="pricing.feature4">Gerollt in Schutzröhre</li>
+            <li data-i18n="pricing.feature5">Versand in 5 Werktagen</li>
+          </ul>
+          <a href="#products" class="btn btn-primary" style="width:100%; justify-content:center;"
+            data-i18n="pricing.a2.cta">A2 bestellen</a>
+        </div>
+        <div class="pricing-card fade-in fade-in-delay-2">
+          <div class="pricing-name">50 × 70 cm</div>
+          <div class="pricing-price"><span>€</span>89</div>
+          <div class="pricing-desc" data-i18n="pricing.large.desc">50 × 70 cm – groß denken, für den Zieleinlauf, den du
+            dir verdient hast</div>
+          <ul class="pricing-features">
+            <li data-i18n="pricing.feature1">Personalisiert mit Name, Startnr. &amp; Zeit</li>
+            <li data-i18n="pricing.feature2">Museumspapier 200g/m²</li>
+            <li data-i18n="pricing.feature3">Digitale Voransicht vor dem Druck</li>
+            <li data-i18n="pricing.feature4">Gerollt in Schutzröhre</li>
+            <li data-i18n="pricing.feature5">Versand in 5 Werktagen</li>
+          </ul>
+          <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;"
+            data-i18n="pricing.large.cta">50×70 bestellen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="label" data-i18n="cta.label">Bereit?</span>
+      <h2 data-i18n-html="cta.title">Deine Ziellinie<br>verdient einen Rahmen.</h2>
+      <p data-i18n="cta.desc">Jeder Marathon ist eine Geschichte aus Disziplin, Schmerz und Triumph. Sorge dafür, dass
+        deine an deiner Wand hängt – nicht nur in deiner Erinnerung.</p>
+      <div class="cta-actions">
+        <a href="#products" class="btn btn-primary" data-i18n="cta.primary">Druck gestalten</a>
+        <a href="mailto:hello@finishline.studio" class="btn btn-outline" data-i18n="cta.secondary">Frage stellen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Finishline Studio</div>
+        <ul class="footer-links">
+          <li><a href="#" data-i18n="footer.home">Startseite</a></li>
+          <li><a href="#how-it-works" data-i18n="footer.how_it_works">So geht's</a></li>
+          <li><a href="#gallery" data-i18n="footer.gallery">Galerie</a></li>
+          <li><a href="#pricing" data-i18n="footer.pricing">Preise</a></li>
+          <li><a href="mailto:hello@finishline.studio" data-i18n="footer.contact">Kontakt</a></li>
         </ul>
-        <a href="#products" class="btn btn-primary" style="width:100%; justify-content:center;">Order A2</a>
-      </div>
-      <div class="pricing-card fade-in fade-in-delay-2">
-        <div class="pricing-name">50 × 70 cm</div>
-        <div class="pricing-price"><span>€</span>89</div>
-        <div class="pricing-desc">50 × 70 cm — go big, for the finish you earned</div>
-        <ul class="pricing-features">
-          <li>Personalized with name, bib & time</li>
-          <li>Museum-quality 200g/m² paper</li>
-          <li>Digital proof before print</li>
-          <li>Rolled in protective tube</li>
-          <li>Shipped in 5 business days</li>
-        </ul>
-        <a href="#products" class="btn btn-dark" style="width:100%; justify-content:center;">Order 50×70</a>
+        <div class="footer-copy" data-i18n="footer.copy">© 2025 Finishline Studio. Alle Rechte vorbehalten.</div>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ===== CTA ===== -->
-<section class="cta-section">
-  <div class="container">
-    <span class="label">Ready?</span>
-    <h2>Your finish line<br>deserves a frame.</h2>
-    <p>Every marathon is a story of discipline, pain, and triumph. Make sure yours lives on your wall, not just in your memory.</p>
-    <div class="cta-actions">
-      <a href="#products" class="btn btn-primary">Design Your Print</a>
-      <a href="mailto:hello@finishline.studio" class="btn btn-outline">Ask a Question</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">Finishline Studio</div>
-      <ul class="footer-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="mailto:hello@finishline.studio">Contact</a></li>
-      </ul>
-      <div class="footer-copy">© 2025 Finishline Studio. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-<script src="js/customizer.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/customizer.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Received — Finishline Studio</title>
+  <title>Bestellung eingegangen — Finishline Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
@@ -38,25 +38,29 @@
     <a href="index.html" class="nav-logo">
       <img src="assets/Finishline Studio logo.png" alt="Finishline Studio" class="nav-logo-img" />
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html#how-it-works">How it works</a></li>
-      <li><a href="index.html#gallery">Gallery</a></li>
-      <li><a href="index.html#pricing">Pricing</a></li>
-      <li><a href="index.html#products" class="nav-cta">Products</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#how-it-works" data-i18n="nav.how_it_works">So geht's</a></li>
+        <li><a href="index.html#gallery" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="index.html#pricing" data-i18n="nav.pricing">Preise</a></li>
+        <li><a href="index.html#products" class="nav-cta" data-i18n="nav.products">Produkte</a></li>
+      </ul>
+      <div class="nav-lang">
+        <button class="lang-btn" data-lang="de">DE</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
   </div>
 </nav>
 
 <section class="thank-you-section">
   <div class="thank-you-inner fade-in">
     <div class="thank-you-icon">✓</div>
-    <span class="label">Order Received</span>
-    <h1>Thank you!</h1>
-    <p>
-      We've received your order and will send a confirmation to your email shortly.
-      Your personalized print will ship within <strong>5 business days</strong>.
-    </p>
-    <a href="index.html" class="btn btn-primary">Back to Home</a>
+    <span class="label" data-i18n="thankyou.label">Bestellung eingegangen</span>
+    <h1 data-i18n="thankyou.title">Danke!</h1>
+    <p data-i18n-html="thankyou.message">Wir haben deine Bestellung erhalten und senden dir in Kürze eine Bestätigung an deine E-Mail. Dein personalisierter Druck wird innerhalb von <strong>5 Werktagen</strong> versendet.</p>
+    <a href="index.html" class="btn btn-primary" data-i18n="thankyou.back">Zurück zur Startseite</a>
   </div>
 </section>
 
@@ -65,15 +69,16 @@
     <div class="footer-inner">
       <div class="footer-logo">Finishline Studio</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#how-it-works">How it works</a></li>
-        <li><a href="mailto:hello@finishline.studio">Contact</a></li>
+        <li><a href="index.html" data-i18n="footer.home">Startseite</a></li>
+        <li><a href="index.html#how-it-works" data-i18n="footer.how_it_works">So geht's</a></li>
+        <li><a href="mailto:hello@finishline.studio" data-i18n="footer.contact">Kontakt</a></li>
       </ul>
-      <div class="footer-copy">© 2025 Finishline Studio. All rights reserved.</div>
+      <div class="footer-copy" data-i18n="footer.copy">© 2025 Finishline Studio. Alle Rechte vorbehalten.</div>
     </div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script>
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));

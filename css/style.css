@@ -193,10 +193,9 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
   min-height: 100vh;
   background: var(--black);
   display: flex;
-  align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 8rem 0 6rem;
+  padding: 0;
 }
 
 .hero-bg {
@@ -230,6 +229,9 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .hero-content {
@@ -279,6 +281,10 @@ nav.scrolled .nav-links a { color: var(--gray-600); }
 }
 
 .hero-actions {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;

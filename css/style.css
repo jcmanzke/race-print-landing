@@ -112,6 +112,18 @@ nav .container {
 }
 nav.scrolled .nav-logo { color: var(--black); }
 
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  max-width: 160px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition);
+}
+nav.scrolled .nav-logo-img { filter: none; }
+
 .nav-links {
   display: flex;
   align-items: center;

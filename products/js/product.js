@@ -53,7 +53,7 @@ function init() {
   const product = PRODUCTS[id];
   if (!product) { showError(); return; }
 
-  document.title = product.name + ' — RacePrint';
+  document.title = product.name + ' — Finishline Studio';
   document.getElementById('product-title').textContent = product.name;
   document.getElementById('product-breadcrumb').textContent = product.name;
   document.getElementById('product-label').textContent = product.tagline;

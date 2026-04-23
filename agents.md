@@ -1,6 +1,8 @@
-# RacePrint — Agent Instructions
+# Finishline Studio — Agent Instructions
 
-This is the authoritative reference for AI agents working on this project. It describes what the site is, how it works, and how every UI and UX decision should be made. **Before making any significant change to logic, layout, copy, or design, read this document.** After making such a change, update the relevant section here so the document always reflects the current state of the site.
+This is the authoritative reference for AI agents working on this project. It describes what the site is, how it works, and how every UI and UX decision should be made. **Before making any significant change to logic, layout, copy, or design, read this document.**
+
+**After making any significant change, you MUST update the relevant section(s) of this document immediately.** This is not optional — keeping this file current is part of every task. The document must always reflect the current state of the site.
 
 This is not a changelog. Delete outdated information when you replace it with new information.
 
@@ -8,7 +10,7 @@ This is not a changelog. Delete outdated information when you replace it with ne
 
 ## 1. Purpose of the Site
 
-RacePrint is a direct-to-consumer e-commerce landing page for a personalized marathon art print business. Visitors land on the homepage, browse four product styles, click through to a dedicated product page, customize their print with a live preview, and place an order.
+Finishline Studio is a direct-to-consumer e-commerce landing page for a personalized marathon art print business. Visitors land on the homepage, browse four product styles, click through to a dedicated product page, customize their print with a live preview, and place an order.
 
 The product is a physical, museum-quality art print mailed to the customer. The emotional hook is celebratory and personal: turning a runner's achievement into permanent wall art.
 
@@ -28,13 +30,15 @@ race-print-landing/
 │   └── style.css         # Shared styles for all pages. No preprocessor.
 ├── js/
 │   └── main.js           # Homepage JS: nav scroll + fade-in observer only.
+├── assets/
+│   └── Finishline Studio logo.png  # Brand logo. Used as <img> in nav on all pages.
 ├── products/
 │   ├── product.html      # Product sub-page shell. JS populates from ?id= param.
 │   ├── css/
 │   │   └── product.css   # Product-page-specific styles only (no duplication of style.css).
 │   └── js/
 │       └── product.js    # All product page logic: config, form builder, live previews, form submit.
-└── agents.md             # This file.
+└── agents.md             # This file. Must be updated after every significant change.
 ```
 
 The site is intentionally dependency-free: no build step, no npm, no framework. All changes must stay within this structure unless there is a strong reason to expand it — and that reason must be documented here.
@@ -216,6 +220,8 @@ The nav bar has two states:
 - **Homepage:** transparent over the hero (dark text/logo hidden), becomes white with shadow after scrolling 60px. Toggled by JS in `main.js`.
 - **Product pages:** always white with shadow. Set via `class="scrolled"` on `<nav>` in `product.html` and CSS overrides in `product.css`. No JS toggle on product pages.
 
+The nav logo is an `<img>` tag (`.nav-logo-img`) inside `.nav-logo`. It is sized by height (`height: 28px`) with `width: auto`, plus a `max-width: 160px` safety cap so the wide source image (~4.54:1 aspect ratio) can never grow large enough to crowd the nav links. On the transparent hero nav the image is inverted to white via `filter: brightness(0) invert(1)`. When `nav.scrolled` the filter is removed, showing the logo in its natural colors. The image src is `assets/Finishline Studio logo.png` (or `../assets/...` from the products subdirectory).
+
 The nav contains a Products dropdown (`.nav-dropdown`) that reveals links to all four product pages on hover. The dropdown is pure CSS — no JS required.
 
 ---
@@ -226,12 +232,14 @@ The nav contains a Products dropdown (`.nav-dropdown`) that reveals links to all
 - Headlines: Short, punchy, often two or three short lines broken for rhythm (e.g. "Your race. / Your story. / On your wall.")
 - The italic serif word in the hero `h1` is a deliberate visual accent — always exactly one `<em>` phrase per hero headline.
 - Prices are in EUR (€). Shipping thresholds are in EUR. If this site expands to other markets, document the currency/locale handling here.
-- Business name throughout: **RacePrint** (one word, capital R and P)
-- Contact email placeholder: `hello@raceprint.de` — replace with real address before launch
+- Business name throughout: **Finishline Studio** (two words, capital F and S)
+- Contact email placeholder: `hello@finishlinestudio.com` — replace with real address before launch
 
 ---
 
 ## 8. What Requires a Document Update
+
+**This document must be updated after every task that makes a significant change to the site.** It is part of the definition of done — a change is not complete until this file reflects it.
 
 Update the relevant section of this file whenever you make any of the following changes:
 

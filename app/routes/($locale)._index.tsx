@@ -5,15 +5,14 @@ import {
 } from '@shopify/remix-oxygen';
 import {Suspense} from 'react';
 import {Await, useLoaderData} from '@remix-run/react';
-import {getSeoMeta} from '@shopify/hydrogen';
+import {Image, Money, getSeoMeta} from '@shopify/hydrogen';
 
-import {Hero} from '~/components/Hero';
-import {FeaturedCollections} from '~/components/FeaturedCollections';
-import {ProductSwimlane} from '~/components/ProductSwimlane';
-import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
-import {getHeroPlaceholder} from '~/lib/placeholders';
+import {Link} from '~/components/Link';
+import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
+import type {ProductCardFragment} from 'storefrontapi.generated';
+import {flattenConnection} from '@shopify/hydrogen';
 
 export const headers = routeHeaders;
 
@@ -25,116 +24,36 @@ export async function loader(args: LoaderFunctionArgs) {
     params.locale &&
     params.locale.toLowerCase() !== `${language}-${country}`.toLowerCase()
   ) {
-    // If the locale URL param is defined, yet we still are on `EN-US`
-    // the the locale param must be invalid, send to the 404 page
     throw new Response(null, {status: 404});
   }
 
-  // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
-
-  // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
   return defer({...deferredData, ...criticalData});
 }
 
-/**
- * Load data necessary for rendering content above the fold. This is the critical data
- * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
- */
 async function loadCriticalData({context, request}: LoaderFunctionArgs) {
-  const [{shop, hero}] = await Promise.all([
-    context.storefront.query(HOMEPAGE_SEO_QUERY, {
-      variables: {handle: 'freestyle'},
-    }),
-    // Add other queries here, so that they are loaded in parallel
-  ]);
-
+  const {shop} = await context.storefront.query(SHOP_QUERY);
   return {
     shop,
-    primaryHero: hero,
     seo: seoPayload.home({url: request.url}),
   };
 }
 
-/**
- * Load data for rendering content below the fold. This data is deferred and will be
- * fetched after the initial page load. If it's unavailable, the page should still 200.
- * Make sure to not throw any errors here, as it will cause the page to 500.
- */
 function loadDeferredData({context}: LoaderFunctionArgs) {
   const {language, country} = context.storefront.i18n;
 
   const featuredProducts = context.storefront
     .query(HOMEPAGE_FEATURED_PRODUCTS_QUERY, {
-      variables: {
-        /**
-         * Country and language properties are automatically injected
-         * into all queries. Passing them is unnecessary unless you
-         * want to override them from the following default:
-         */
-        country,
-        language,
-      },
+      variables: {country, language},
     })
     .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
       console.error(error);
       return null;
     });
 
-  const secondaryHero = context.storefront
-    .query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'backcountry',
-        country,
-        language,
-      },
-    })
-    .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return null;
-    });
-
-  const featuredCollections = context.storefront
-    .query(FEATURED_COLLECTIONS_QUERY, {
-      variables: {
-        country,
-        language,
-      },
-    })
-    .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return null;
-    });
-
-  const tertiaryHero = context.storefront
-    .query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'winter-2022',
-        country,
-        language,
-      },
-    })
-    .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return null;
-    });
-
-  return {
-    featuredProducts,
-    secondaryHero,
-    featuredCollections,
-    tertiaryHero,
-  };
+  return {featuredProducts};
 }
 
 export const meta = ({matches}: MetaArgs<typeof loader>) => {
@@ -142,182 +61,241 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 };
 
 export default function Homepage() {
-  const {
-    primaryHero,
-    secondaryHero,
-    tertiaryHero,
-    featuredCollections,
-    featuredProducts,
-  } = useLoaderData<typeof loader>();
-
-  // TODO: skeletons vs placeholders
-  const skeletons = getHeroPlaceholder([{}, {}, {}]);
+  const {featuredProducts} = useLoaderData<typeof loader>();
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
+      <HeroSection />
 
-      {featuredProducts && (
-        <Suspense>
+      {/* Featured Products */}
+      <section className="px-6 md:px-10 lg:px-12 pt-12 pb-16">
+        <h2 className="text-4xl font-bold text-[#1a1a1a] mb-8">
+          Vorgestellte Läufe
+        </h2>
+        <Suspense fallback={<ProductGridSkeleton />}>
           <Await resolve={featuredProducts}>
             {(response) => {
-              if (
-                !response ||
-                !response?.products ||
-                !response?.products?.nodes
-              ) {
-                return <></>;
-              }
+              if (!response?.products?.nodes?.length) return null;
               return (
-                <ProductSwimlane
-                  products={response.products}
-                  title="Featured Products"
-                  count={4}
-                />
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+                  {response.products.nodes.slice(0, 4).map(
+                    (product: ProductCardFragment, i: number) => (
+                      <HomepageProductCard
+                        key={product.id}
+                        product={product}
+                        loading={i < 2 ? 'eager' : 'lazy'}
+                      />
+                    ),
+                  )}
+                </div>
               );
             }}
           </Await>
         </Suspense>
-      )}
+      </section>
 
-      {secondaryHero && (
-        <Suspense fallback={<Hero {...skeletons[1]} />}>
-          <Await resolve={secondaryHero}>
-            {(response) => {
-              if (!response || !response?.hero) {
-                return <></>;
-              }
-              return <Hero {...response.hero} />;
-            }}
-          </Await>
-        </Suspense>
-      )}
+      <HowItWorksSection />
 
-      {featuredCollections && (
-        <Suspense>
-          <Await resolve={featuredCollections}>
-            {(response) => {
-              if (
-                !response ||
-                !response?.collections ||
-                !response?.collections?.nodes
-              ) {
-                return <></>;
-              }
-              return (
-                <FeaturedCollections
-                  collections={response.collections}
-                  title="Collections"
-                />
-              );
-            }}
-          </Await>
-        </Suspense>
-      )}
-
-      {tertiaryHero && (
-        <Suspense fallback={<Hero {...skeletons[2]} />}>
-          <Await resolve={tertiaryHero}>
-            {(response) => {
-              if (!response || !response?.hero) {
-                return <></>;
-              }
-              return <Hero {...response.hero} />;
-            }}
-          </Await>
-        </Suspense>
-      )}
+      <PersonalizedBannerSection />
     </>
   );
 }
 
-const COLLECTION_CONTENT_FRAGMENT = `#graphql
-  fragment CollectionContent on Collection {
-    id
-    handle
-    title
-    descriptionHtml
-    heading: metafield(namespace: "hero", key: "title") {
-      value
-    }
-    byline: metafield(namespace: "hero", key: "byline") {
-      value
-    }
-    cta: metafield(namespace: "hero", key: "cta") {
-      value
-    }
-    spread: metafield(namespace: "hero", key: "spread") {
-      reference {
-        ...Media
-      }
-    }
-    spreadSecondary: metafield(namespace: "hero", key: "spread_secondary") {
-      reference {
-        ...Media
-      }
-    }
-  }
-  ${MEDIA_FRAGMENT}
-` as const;
+function HeroSection() {
+  return (
+    <section
+      className="relative w-full overflow-hidden bg-[#d4d0cc]"
+      style={{height: 'clamp(420px, 58vh, 640px)'}}
+    >
+      {/* Gradient placeholder — replace with <Image> once hero image is configured */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#c8c4be]/80 via-[#b8b4ae]/40 to-[#9a9690]/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10" />
 
-const HOMEPAGE_SEO_QUERY = `#graphql
-  query seoCollectionContent($handle: String, $country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    hero: collection(handle: $handle) {
-      ...CollectionContent
-    }
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col px-8 md:px-12 lg:px-16 py-10">
+        {/* Push heading to ~40% down */}
+        <div className="flex-[0.55]" />
+        <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-black text-[#1a1a1a] leading-none tracking-tight">
+          Your Race.
+        </h1>
+        <div className="flex-1" />
+        <div className="pb-2">
+          <Link
+            to="/collections/all"
+            className="inline-block bg-[#1a1a1a] text-white px-7 py-4 rounded-xl text-sm font-semibold hover:bg-black transition-colors duration-150"
+          >
+            Finde dein Rennen
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomepageProductCard({
+  product,
+  loading,
+}: {
+  product: ProductCardFragment;
+  loading?: HTMLImageElement['loading'];
+}) {
+  const firstVariant = flattenConnection(product.variants)[0];
+  if (!firstVariant) return null;
+  const {image, price} = firstVariant;
+
+  return (
+    <Link to={`/products/${product.handle}`} prefetch="viewport">
+      <div className="flex flex-col gap-3">
+        <div className="relative aspect-[4/5] bg-[#f5f5f5] overflow-hidden rounded-sm">
+          {image && (
+            <Image
+              data={image}
+              aspectRatio="4/5"
+              sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 50vw"
+              loading={loading}
+              className="object-cover w-full h-full"
+              alt={image.altText || product.title}
+            />
+          )}
+        </div>
+        <div className="flex flex-col gap-1">
+          <span className="text-[#1a1a1a] text-sm font-normal leading-snug">
+            {product.title}
+          </span>
+          <Money
+            data={price!}
+            className="text-[#1a1a1a] text-sm"
+            withoutTrailingZeros
+          />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function ProductGridSkeleton() {
+  return (
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="flex flex-col gap-3">
+          <div className="aspect-[4/5] bg-[#f0f0f0] rounded-sm animate-pulse" />
+          <div className="h-4 w-32 bg-[#f0f0f0] rounded animate-pulse" />
+          <div className="h-4 w-16 bg-[#f0f0f0] rounded animate-pulse" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function HowItWorksSection() {
+  const steps = [
+    {
+      icon: (
+        <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#b5a882" strokeWidth="1.5">
+          <rect x="8" y="12" width="32" height="40" rx="2" />
+          <line x1="14" y1="24" x2="34" y2="24" />
+          <line x1="14" y1="32" x2="34" y2="32" />
+          <line x1="14" y1="40" x2="26" y2="40" />
+          <circle cx="48" cy="44" r="10" />
+          <line x1="45" y1="44" x2="51" y2="44" />
+          <line x1="48" y1="41" x2="48" y2="47" />
+        </svg>
+      ),
+      title: 'Rennen wählen',
+      description: 'Wähle dein Rennen aus unserem Katalog oder gib deine eigenen Daten ein.',
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#b5a882" strokeWidth="1.5">
+          <rect x="6" y="14" width="52" height="36" rx="2" />
+          <rect x="12" y="20" width="22" height="24" rx="1" />
+          <circle cx="46" cy="32" r="7" />
+          <line x1="46" y1="25" x2="46" y2="39" strokeWidth="1" />
+          <line x1="39" y1="32" x2="53" y2="32" strokeWidth="1" />
+        </svg>
+      ),
+      title: 'Poster personalisieren',
+      description: 'Trage deinen Namen, deine Zeit und deine Startnummer ein.',
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 64 64" className="w-14 h-14" fill="none" stroke="#b5a882" strokeWidth="1.5">
+          <path d="M16 48 L32 8 L48 48" />
+          <line x1="20" y1="38" x2="44" y2="38" />
+          <circle cx="32" cy="54" r="4" />
+        </svg>
+      ),
+      title: 'Bestellen & genießen',
+      description: 'Dein persönliches Finishline-Poster wird zu dir nach Hause geliefert.',
+    },
+  ];
+
+  return (
+    <section className="py-20 px-6 md:px-10 lg:px-12 bg-white">
+      <div className="max-w-4xl mx-auto text-center">
+        <p className="text-xs tracking-[0.3em] text-[#9a9690] uppercase mb-3">
+          Einfacher Prozess
+        </p>
+        <h2 className="text-4xl font-bold text-[#1a1a1a] mb-16">
+          So funktioniert's
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {steps.map((step, i) => (
+            <div key={i} className="flex flex-col items-center gap-4">
+              <div className="mb-2">{step.icon}</div>
+              <h3 className="text-base font-bold text-[#1a1a1a]">{step.title}</h3>
+              <p className="text-sm text-[#6b6b6b] leading-relaxed max-w-[200px]">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PersonalizedBannerSection() {
+  return (
+    <section
+      className="relative w-full overflow-hidden bg-[#9a9690]"
+      style={{height: 'clamp(320px, 45vh, 520px)'}}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-[#6b6760]/80 to-[#9a9690]/40" />
+      <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-12 lg:px-16 pb-14">
+        <h2 className="text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] font-black text-white leading-tight max-w-2xl">
+          Personalisierte Marathon-Poster
+        </h2>
+        <div className="mt-6">
+          <Link
+            to="/collections/all"
+            className="inline-block border border-white text-white px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-white hover:text-[#1a1a1a] transition-colors duration-150"
+          >
+            Kollektion entdecken
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const SHOP_QUERY = `#graphql
+  query shopInfo {
     shop {
       name
       description
     }
   }
-  ${COLLECTION_CONTENT_FRAGMENT}
 ` as const;
 
-const COLLECTION_HERO_QUERY = `#graphql
-  query heroCollectionContent($handle: String, $country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    hero: collection(handle: $handle) {
-      ...CollectionContent
-    }
-  }
-  ${COLLECTION_CONTENT_FRAGMENT}
-` as const;
-
-// @see: https://shopify.dev/api/storefront/current/queries/products
 export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
   query homepageFeaturedProducts($country: CountryCode, $language: LanguageCode)
   @inContext(country: $country, language: $language) {
-    products(first: 8) {
+    products(first: 4, sortKey: BEST_SELLING) {
       nodes {
         ...ProductCard
       }
     }
   }
   ${PRODUCT_CARD_FRAGMENT}
-` as const;
-
-// @see: https://shopify.dev/api/storefront/current/queries/collections
-export const FEATURED_COLLECTIONS_QUERY = `#graphql
-  query homepageFeaturedCollections($country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    collections(
-      first: 4,
-      sortKey: UPDATED_AT
-    ) {
-      nodes {
-        id
-        title
-        handle
-        image {
-          altText
-          width
-          height
-          url
-        }
-      }
-    }
-  }
 ` as const;

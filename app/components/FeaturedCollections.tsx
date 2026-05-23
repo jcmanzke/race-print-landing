@@ -1,11 +1,12 @@
 import {Image} from '@shopify/hydrogen';
 
-import type {HomepageFeaturedCollectionsQuery} from 'storefrontapi.generated';
+import type {FeaturedItemsQuery} from 'storefrontapi.generated';
 import {Heading, Section} from '~/components/Text';
 import {Grid} from '~/components/Grid';
 import {Link} from '~/components/Link';
 
-type FeaturedCollectionsProps = HomepageFeaturedCollectionsQuery & {
+type FeaturedCollectionsProps = {
+  collections: FeaturedItemsQuery['featuredCollections'];
   title?: string;
   [key: string]: any;
 };
@@ -18,12 +19,12 @@ export function FeaturedCollections({
   const haveCollections = collections?.nodes?.length > 0;
   if (!haveCollections) return null;
 
-  const collectionsWithImage = collections.nodes.filter((item) => item.image);
+  const collectionsWithImage = collections.nodes.filter((item: any) => item.image);
 
   return (
     <Section {...props} heading={title}>
       <Grid items={collectionsWithImage.length}>
-        {collectionsWithImage.map((collection) => {
+        {collectionsWithImage.map((collection: any) => {
           return (
             <Link key={collection.id} to={`/collections/${collection.handle}`}>
               <div className="grid gap-4">

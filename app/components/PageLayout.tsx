@@ -2,6 +2,8 @@ import {useParams, Form, Await, useRouteLoaderData} from '@remix-run/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {CartForm} from '@shopify/hydrogen';
 
+import logoSrc from '~/assets/Finishline Studio logo white.png';
+
 import {type LayoutQuery} from 'storefrontapi.generated';
 import {Link} from '~/components/Link';
 import {Cart} from '~/components/Cart';
@@ -44,20 +46,12 @@ export function PageLayout({children, layout}: LayoutProps) {
 
 function Logo() {
   return (
-    <div className="flex flex-col items-center leading-none select-none gap-[3px]">
-      <span
-        className="font-display font-black text-white uppercase tracking-[0.12em] text-[1.35rem]"
-      >
-        FINISHLINE
-      </span>
-      <div className="flex items-center gap-[7px]">
-        <span className="block h-px w-[18px] bg-white/60" />
-        <span className="text-white/80 text-[8px] tracking-[0.38em] font-normal uppercase leading-none">
-          STUDIO
-        </span>
-        <span className="block h-px w-[18px] bg-white/60" />
-      </div>
-    </div>
+    <img
+      src={logoSrc}
+      alt="Finishline Studio"
+      className="h-8 w-auto object-contain select-none"
+      draggable={false}
+    />
   );
 }
 

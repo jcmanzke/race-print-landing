@@ -8,6 +8,7 @@ import {Await, useLoaderData} from '@remix-run/react';
 import {Image, Money, getSeoMeta} from '@shopify/hydrogen';
 
 import {Link} from '~/components/Link';
+import {ScrollExpandHero} from '~/components/ScrollExpandHero';
 import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
@@ -103,32 +104,31 @@ export default function Homepage() {
 
 function HeroSection() {
   return (
-    <section
-      className="relative w-full overflow-hidden bg-[#d4d0cc]"
-      style={{height: 'clamp(420px, 58vh, 640px)'}}
+    <ScrollExpandHero
+      mediaType="image"
+      mediaSrc="https://images.unsplash.com/photo-1530143311094-34d807799e8f?q=80&w=1280&auto=format&fit=crop"
+      bgImageSrc="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?q=80&w=1920&auto=format&fit=crop"
+      title="Your Race. Your Story."
+      date="Finishline Studio"
+      scrollToExpand="Scroll to explore"
+      textBlend
     >
-      {/* Gradient placeholder — replace with <Image> once hero image is configured */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#c8c4be]/80 via-[#b8b4ae]/40 to-[#9a9690]/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10" />
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col px-8 md:px-12 lg:px-16 py-10">
-        {/* Push heading to ~40% down */}
-        <div className="flex-[0.55]" />
-        <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-black text-[#1a1a1a] leading-none tracking-tight">
-          Your Race.
-        </h1>
-        <div className="flex-1" />
-        <div className="pb-2">
-          <Link
-            to="/collections/all"
-            className="inline-block bg-[#1a1a1a] text-white px-7 py-4 rounded-xl text-sm font-semibold hover:bg-black transition-colors duration-150"
-          >
-            Finde dein Rennen
-          </Link>
-        </div>
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6 text-[#1a1a1a]">
+          Personalisierte Marathon-Poster
+        </h2>
+        <p className="text-lg mb-8 text-[#6b6b6b]">
+          Halte deinen besonderen Moment für immer fest – mit einem einzigartigen
+          Poster, das deine Zeit, deinen Namen und deine Strecke zeigt.
+        </p>
+        <Link
+          to="/collections/all"
+          className="inline-block bg-[#1a1a1a] text-white px-8 py-4 rounded-xl text-sm font-semibold hover:bg-black transition-colors duration-150"
+        >
+          Finde dein Rennen
+        </Link>
       </div>
-    </section>
+    </ScrollExpandHero>
   );
 }
 
